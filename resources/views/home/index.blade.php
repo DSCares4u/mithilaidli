@@ -1,6 +1,6 @@
 @extends('home.homeBase')
 @section('content')
-    <div class="bg-[#353b48]">
+    <div class="bg-[#353b48] h-full">
         <div class="main flex w-full py-20 h-screen ">
             <div class="w-1/2 px-6">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -97,7 +97,7 @@
                     <p class="text-base">Best breakfast in the town</p>
                 </div>
                 <div class="w-1/4">
-                    <img src="/logo/idli5.png" alt="" class="h-40">
+                    <img src="/logo/idli5.png" alt="" class="h-40 ">
                 </div>
             </div>
             <div class="w-1/2 flex bg-black px-4 py-12 rounded-xl">
@@ -109,12 +109,21 @@
                     <img src="/logo/cofee.png" alt="" class="h-40">
                 </div>
             </div>
-           
         </div>
+        <div class="main flex w-full py-20 h-screen px-20">
+            <div class="w-1/2 px-6 rounded-xl"><img src="/logo/idli4.jpg" class="h-80 rounded-xl" alt="">
+            </div>
+            <div class="w-1/2 px-6 ">
+                <h3 class="text-4xl text-white font-bold leading-snug mb-3">
+                    FIND YOUR BEST TASTED FOOD & DRINK JUST IN ONE PLACE                </h3>
+                <p class="text-white font-medium  border-t-2 border-yellow-600  pt-2">The taste of southexidli idli is because of these things that creep on everyone’s tongue and remind them constantly. There will be no oily feeling while tasting the Sambar and Chutney made from wet coconut, which gives a sweet taste to the tongue. People are fans of it.</p>
+                <button
+                    class="px-3 py-2 font-medium text-[#353b48] bg-yellow-600 hover:bg-yellow-700 hover:text-black mt-2 rounded-md "><i
+                        class="fa-solid fa-circle-arrow-right"></i> About Us</button>
+            </div>
+        </div>
+
     </div>
-
-
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('[data-carousel-item]');
