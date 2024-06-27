@@ -15,3 +15,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/order-now',[HomeController::class,'orderPage']);
+Route::get('/carrer',[HomeController::class,'carrer']);
+Route::get('/blog',[HomeController::class,'blog']);
+Route::get('/whyus',[HomeController::class,'whyUs']);
+Route::get('/brand-story',[HomeController::class,'brandStory']);
+Route::get('/franchise-query',[HomeController::class,'franchiseQuery']);
