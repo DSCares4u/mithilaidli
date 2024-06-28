@@ -33,4 +33,12 @@ class HomeController extends Controller
     public function franchiseQuery(){
         return view('home.franchiseQuery');
     }
+
+    public function bookEvent(){
+        return view('home.bookEvent');
+    }
+
+    public function cartLocator(){
+        return view('home.cartLocator');
+    }
 }

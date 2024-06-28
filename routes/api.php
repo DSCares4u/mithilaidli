@@ -44,3 +44,10 @@ Route::get('/blog',[CommonController::class,'blogIndex'])->name('blog.index');
 // Route::delete('/blog/forceDelete/{id}',[CommonController::class,'forceDelete']);
 // Route::patch('/blog/restore/{id}',[CommonController::class,'restore']);
 
+Route::post('/book-event',[CommonController::class,'eventBooking'])->name('book.event.store');
+Route::get('/book-event',[CommonController::class,'eventIndex'])->name('book.event.index');
+
+Route::post('/rating',[CommonController::class,'ratingStore'])->name('rate.store');
+Route::get('/rating',[CommonController::class,'ratingIndex'])->name('rate.index');
+
+

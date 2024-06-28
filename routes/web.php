@@ -21,3 +21,5 @@ Route::get('/blog',[HomeController::class,'blog']);
 Route::get('/whyus',[HomeController::class,'whyUs']);
 Route::get('/brand-story',[HomeController::class,'brandStory']);
 Route::get('/franchise-query',[HomeController::class,'franchiseQuery']);
+Route::get('/book-event',[HomeController::class,'bookEvent']);
+Route::get('/cart-locator',[HomeController::class,'cartLocator']);

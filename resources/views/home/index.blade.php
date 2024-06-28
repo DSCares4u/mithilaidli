@@ -3,7 +3,7 @@
     <div class="bg-[#6ab04c] h-full">
         <div class="main flex w-full py-20 h-screen ">
             <div class="w-1/2 px-6">
-                <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <div id="default-carousel" class="relative w-full z-10" data-carousel="slide">
                     <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                         <!-- Item 1 -->
@@ -85,9 +85,12 @@
                 </h3>
                 <p class="text-white font-medium  border-t-2 border-yellow-600  pt-2">To create new entrepreneurs by opening
                     branches at different places and through it to provide employment to numerous youths.</p>
-                <button
-                    class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-lg "><i
-                        class="fa-solid fa-circle-arrow-right"></i> Enjoy Our Special Idlis</button>
+                    <a href="/order-now">
+                        <button
+                            class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-lg "><i
+                            class="fa-solid fa-circle-arrow-right"></i> Enjoy Our Special Idlis
+                        </button>
+                    </a>
             </div>
         </div>
         <div class="card flex gap-10 px-8">

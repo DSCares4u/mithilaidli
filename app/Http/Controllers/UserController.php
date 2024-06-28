@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',                   
-            'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/|unique:users',                   
+            'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
             'address' => 'required|string',                   
             'quantity' => 'required|integer|min:10',
         ]);
