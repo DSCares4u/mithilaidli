@@ -61,7 +61,7 @@
                             <a href="/cart-locator"
                                 class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart
                                 Locator</a>
-                            <a href="/blog"
+                            <a href="/blog-page"
                                 class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
                         </div>
                     </div>

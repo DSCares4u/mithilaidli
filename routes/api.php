@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/register',[UserController::class,'store'])->name('user.store');
-Route::get('/register',[UserController::class,'index'])->name('register.index');
+Route::post('/order',[UserController::class,'store'])->name('order.store');
+Route::get('/order',[UserController::class,'index'])->name('order.index');
 // Route::get('/register/view/{id}',[UserController::class,'show']);
 // Route::put('/register/edit/{id}',[UserController::class,'update']);
 Route::delete('/register/delete/{id}',[UserController::class,'destroy']);
@@ -49,5 +49,8 @@ Route::get('/book-event',[CommonController::class,'eventIndex'])->name('book.eve
 
 Route::post('/rating',[CommonController::class,'ratingStore'])->name('rate.store');
 Route::get('/rating',[CommonController::class,'ratingIndex'])->name('rate.index');
+
+Route::post('/career',[CareerController::class,'careerStore'])->name('career.store');
+Route::get('/career',[CareerController::class,'careerIndex'])->name('career.index');
 
 

@@ -85,48 +85,46 @@ class CommonController extends Controller
     public function blogStore(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string',                   
-            'description' => 'required|string',                   
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'title' => 'required|string',
+            'image' => 'required|image|max:10240',
         ]);
 
-            if ($validator->fails()) {
-                return response()->json([
-                    'status' => 422,
-                    'errors' => $validator->messages()
-                ], 422);
-            }
-        else {  
-            
-            // Handle the file upload
-            if ($request->hasFile('image')) {
-                $logo = time() . "." . $request->logo->extension();
-                $request->logo->move(public_path("blog/image"), $logo);
-            } else {
-                return response()->json([
-                    'status' => 422,
-                    'errors' => ['logo' => 'Logo is required.']
-                ], 422);
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages()
+            ], 422);
+        }
 
-            $user = Blog::create([
-                'title' => $request->title,                                       
-                'link' => $request->link,                                       
-                'description' => $request->description,  
-                'image'=>$logo
+        // Handle the file upload
+        if ($request->hasFile('image')) {
+            $image = time() . "." . $request->image->extension();
+            $request->image->move(public_path("blog/image"), $image);
+        } else {
+            return response()->json([
+                'status' => 422,
+                'errors' => ['image' => 'Image is required.']
+            ], 422);
+        }
+
+        // Create the blog post
+        $blog = Blog::create([
+            'title' => $request->title,
+            'link' => $request->link,
+            'description' => $request->description,
+            'image' => $image
+        ]);
+
+        if ($blog) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'Blog Added Successfully'
             ]);
-    
-            if ($user) {
-                return response()->json([
-                    'user_id' => 200,
-                    'message' => 'Blog Added Successfully'
-                ]);
-            } else {
-                return response()->json([
-                    'status' => 500,
-                    'message' => "Unable to add your Request"
-                ], 500);
-            }
+        } else {
+            return response()->json([
+                'status' => 500,
+                'message' => "Unable to add your Request"
+            ], 500);
         }
     }
 

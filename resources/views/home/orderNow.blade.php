@@ -18,7 +18,7 @@
                     <p id="error-mobile" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
                 <div>
-                    <label for="address" class="block text-sm font-medium text-gray-700">Shipping Address</label>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Delivery Address</label>
                     <textarea id="address" name="address" rows="2" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
                     <p id="error-address" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
@@ -51,7 +51,7 @@
                 let formData = new FormData(this);
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('user.store') }}",
+                    url: "{{ route('order.store') }}",
                     data: formData,
                     dataType: "JSON",
                     contentType: false,

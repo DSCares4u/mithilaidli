@@ -8,63 +8,42 @@
                 </p>
             </section>
 
-            <section class="mt-12">
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog1.jpg" alt="Blog 1" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">The History of Idli</h3>
-                        <p class="mt-2 text-gray-600">Discover the rich history of Idli, from its origins to its popularity
-                            in modern cuisine.</p>
-                        <a href="/blog/the-history-of-idli" class="mt-4 inline-block text-indigo-600 hover:underline">Read
-                            More</a>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog2.jpg" alt="Blog 2" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">5 Delicious Idli Recipes</h3>
-                        <p class="mt-2 text-gray-600">Try these 5 unique and delicious Idli recipes that are sure to impress
-                            your family and friends.</p>
-                        <a href="/blog/5-delicious-idli-recipes"
-                            class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog3.jpg" alt="Blog 3" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Health Benefits of Idli</h3>
-                        <p class="mt-2 text-gray-600">Learn about the numerous health benefits of including Idlis in your
-                            diet.</p>
-                        <a href="/blog/health-benefits-of-idli"
-                            class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog4.jpg" alt="Blog 4" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Perfect Idli Batter Tips</h3>
-                        <p class="mt-2 text-gray-600">Get the best tips and tricks for making the perfect Idli batter every
-                            time.</p>
-                        <a href="/blog/perfect-idli-batter-tips"
-                            class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog5.jpg" alt="Blog 5" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Idli Varieties Around India</h3>
-                        <p class="mt-2 text-gray-600">Explore the different varieties of Idli from various regions of India.
-                        </p>
-                        <a href="/blog/idli-varieties-around-india"
-                            class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="path/to/blog6.jpg" alt="Blog 6" class="h-48 w-full object-cover rounded-lg">
-                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Idli Making Equipment Guide</h3>
-                        <p class="mt-2 text-gray-600">A comprehensive guide to the best equipment for making Idlis at home.
-                        </p>
-                        <a href="/blog/idli-making-equipment-guide"
-                            class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
-                    </div>
-                </div>
+            <section class="mt-12 ">
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="callingData"></div>
             </section>
         </main>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Function to fetch and display appointment
+            let callingData = () => {
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('blog.index') }}",
+                    success: function(response) {
+                        let card = $("#callingData");
+                        card.empty();
+                        let data = response.data;
+                        data.forEach((data) => {
+                            card.append(`
+                                <div class="bg-white p-4 rounded-lg shadow-lg ">
+                                    <div class='text-center'>
+                                        <img src="/blog/image/${data.image}" alt="Blog 1" class="h-64 w-full object-cover rounded-lg mx-auto">
+                                    </div>
+                                    <h3 class="mt-4 text-xl font-semibold text-gray-900">${data.title}</h3>
+                                    <p class="mt-2 text-gray-600">${data.description}</p>
+                                    <a href="${data.link}" class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
+                                </div>
+                            `);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+            callingData();
+        });
+    </script>
 @endsection
