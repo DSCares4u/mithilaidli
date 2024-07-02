@@ -1,4 +1,4 @@
-@extends('home.adminBase')
+@extends('home.homeBase')
 @section('content')
     <div class="max-w-4xl mx-auto my-10 bg-gray-200 p-8 rounded-lg shadow-lg">
         <h1 class="text-2xl font-bold text-gray-700 mb-8 text-center">Job Application Form</h1>
@@ -147,14 +147,6 @@
                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300">
                 <p id="error-qualification" class="text-red-500 text-xs font-semibold error-message"></p>
             </div>
-            <div class="mb-4 w-1/2">
-                <label for="career_id" class="block text-gray-700 font-medium mb-2">Choose Job</label>
-                <select id="career_id" name="career_id"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300">
-                    <option value="">Select Career</option>
-                </select>
-                <p id="error-gender" class="text-red-500 text-xs font-semibold error-message"></p>
-            </div>
 
             <!-- Photo -->
             <div class="mb-4 flex gap-5">
@@ -188,6 +180,8 @@
             $("#addData").submit(function(e) {
                 e.preventDefault();
                 let formData = new FormData(this);
+                careerId = getIdFromUrlPath();
+                formData.append('career_id', careerId);
                 $.ajax({
                     type: "POST",
                     url: "{{ route('job.applied.store') }}",
@@ -215,6 +209,12 @@
                     }
                 });
             });
+
+            // Function to extract ID from URL path
+            function getIdFromUrlPath() {
+                let pathArray = window.location.pathname.split('/');
+                return pathArray[pathArray.length - 1];
+            }
         })
     </script>
 @endsection

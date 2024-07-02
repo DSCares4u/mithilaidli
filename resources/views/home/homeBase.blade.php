@@ -53,7 +53,7 @@
                             <a href="/brand-story"
                                 class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand
                                 Story</a>
-                            <a href="/carrer"
+                            <a href="/career-page"
                                 class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
                             <a href="/franchise-query"
                                 class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise

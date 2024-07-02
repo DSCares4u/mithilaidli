@@ -185,7 +185,7 @@ class CommonController extends Controller
     public function ratingIndex()
     {
         $rating = Rating::orderBy('created_at', 'desc')->get();
-        if ($event->count() > 0) {
+        if ($rating->count() > 0) {
             return response()->json([
                 'status' => 200,
                 'data' => $rating

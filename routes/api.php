@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\CareerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +54,5 @@ Route::get('/rating',[CommonController::class,'ratingIndex'])->name('rate.index'
 Route::post('/career',[CareerController::class,'careerStore'])->name('career.store');
 Route::get('/career',[CareerController::class,'careerIndex'])->name('career.index');
 
-
+Route::post('/job-applied',[CareerController::class,'jobAppliedStore'])->name('job.applied.store');
+Route::get('/job-applied',[CareerController::class,'jobAppliedIndex'])->name('job.applied.index');

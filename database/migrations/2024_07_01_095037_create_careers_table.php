@@ -15,6 +15,25 @@ return new class extends Migration
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('company');
+            $table->string('profile');
+            $table->string('mobile');
+            $table->string('email')->nullable();
+            $table->string('no_of_post');
+            $table->string('city');
+            $table->string('state');
+            $table->string('job_type');
+            $table->string('language');
+            $table->string('qualification');
+            $table->string('min_salary');
+            $table->string('max_salary');
+            $table->string('min_experience');
+            $table->string('max_experience');
+            $table->string('opening_date');
+            $table->string('image');
+            $table->string('website')->nullable();
+            $table->string('description');
             $table->timestamps();
         });
     }

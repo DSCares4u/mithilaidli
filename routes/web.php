@@ -17,13 +17,15 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/order-now',[HomeController::class,'orderPage']);
-Route::get('/carrer',[HomeController::class,'carrer']);
 Route::get('/blog-page',[HomeController::class,'blog']);
 Route::get('/whyus',[HomeController::class,'whyUs']);
 Route::get('/brand-story',[HomeController::class,'brandStory']);
 Route::get('/franchise-query',[HomeController::class,'franchiseQuery']);
 Route::get('/book-event',[HomeController::class,'bookEvent']);
 Route::get('/cart-locator',[HomeController::class,'cartLocator']);
+Route::get('/career-page',[HomeController::class,'career']);
+Route::get('/career-applied/{id}',[HomeController::class,'appliedCareer']);
+
 
 Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
 Route::get('/admin',[AdminController::class,'manageOrder']);
@@ -38,3 +40,4 @@ Route::get('/admin/manage-career',[AdminController::class,'manageCareer']);
 Route::get('/admin/manage-career/insert',[AdminController::class,'insertCareer']);
 Route::get('/admin/manage-job-form',[AdminController::class,'manageJobForm']);
 Route::get('/admin/manage-job-form/insert',[AdminController::class,'insertJobForm']);
+Route::get('/admin/manage-rating',[AdminController::class,'viewRating']);

@@ -57,5 +57,9 @@ class AdminController extends Controller
     public function insertJobForm(){
         return view('admin.insertJobForm');
     }
+
+    public function viewRating(){
+        return view('admin.viewRating');
+    }
     
 }

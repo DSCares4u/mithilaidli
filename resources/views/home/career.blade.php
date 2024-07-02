@@ -152,14 +152,14 @@
                                 <div class="mb-2 mt-2">
                                     <h5 class="text-sm font-normal text-gray-500 flex gap-2">
                                         <p class='font-semibold text-gray-500'>Job Type: </p>
-                                        <p class="text-sm">${data.type}</p>
+                                        <p class="text-sm">${data.job_type}</p>
                                     </h5>
                                 </div>
                                 <div class="main flex justify-start text-gray-500">
                                     <div class="mb-2">
                                         <h5 class="text-sm font-normal flex gap-2">
                                             <p class='font-semibold text-gray-500'>Experience: </p>
-                                            <p class="text-sm">${data.min_experinece}-${data.max_experience} Years</p>
+                                            <p class="text-sm">${data.min_experience}-${data.max_experience} Years</p>
                                         </h5>
                                     </div>
                                 </div>
@@ -194,12 +194,12 @@
                                     <button class="toggleButton text-blue-500"><i class="fa-solid fa-angle-down"></i></button>
                                 </div>
                                 <div class="button flex gap-5 mt-5">
-                                    <a href="/viewJobForm/${data.id}"
+                                    <a href="/career-applied/${data.id}"
                                         class="bg-green-600 rounded hover:bg-green-700 text-center text-white py-1 w-1/2">Apply For
                                         Job</a>
                                     <button
                                         class="share-btn rounded text-green-700 border border-green-700 text-center px-auto flex justify-center py-1 w-1/2"
-                                        data-share-url="/viewJobForm/${data.id}"><img src="/icons/share.png" class="h-6 mr-1"
+                                        data-share-url="/career-applied/${data.id}"><img src="/icons/share.png" class="h-6 mr-1"
                                             alt="">Share</button>
                                 </div>
                             </div>

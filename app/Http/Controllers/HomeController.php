@@ -14,8 +14,12 @@ class HomeController extends Controller
         return view('home.orderNow');
     }
 
-    public function carrer(){
-        return view('home.carrer');
+    public function career(){
+        return view('home.career');
+    }
+    
+    public function appliedCareer(){
+        return view('home.appliedCareer');
     }
 
     public function blog(){
