@@ -8,7 +8,7 @@
         </section>
         <div class="flex mt-12">
             <div class=" w-3/4 " id="callingData">
-                <div class="card w-3/4 mb-4 capitalize">
+                {{-- <div class="card w-3/4 mb-4 capitalize">
                     <div
                         class="block max-w-full p-4 bg-white border border-purple-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <div class="flex justify-between">
@@ -96,7 +96,7 @@
                                     alt="">Share</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>

@@ -1,6 +1,6 @@
 @extends('home.homeBase')
 @section('content')
-    <div class="bg-gray-200 flex justify-center items-center h-screen">
+    <div class="bg-gray-200 flex justify-center items-center px-10 h-screen">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
             <h2 class="text-2xl font-bold mb-6 text-center">Online Event Booking Form</h2>
             <form action="#" method="POST" class="space-y-4" id="addData">
@@ -27,6 +27,11 @@
                         <option value="other event">Any Other Event</option>
                     </select>                        
                     <p id="error-event_type" class="text-red-500 text-xs font-semibold error-message"></p>
+                </div>
+                <div>
+                    <label for="booking_date" class="block text-sm font-medium text-gray-700">Booking Date</label>
+                    <input type="date" id="booking_date" name="booking_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <p id="error-booking_date" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
                 <div>
                     <label for="address" class="block text-sm font-medium text-gray-700">Event Venue</label>

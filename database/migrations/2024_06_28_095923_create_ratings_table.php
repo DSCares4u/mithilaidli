@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('comment')->nullable();
             $table->string('rate');
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

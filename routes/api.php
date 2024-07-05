@@ -50,6 +50,8 @@ Route::get('/book-event',[CommonController::class,'eventIndex'])->name('book.eve
 
 Route::post('/rating',[CommonController::class,'ratingStore'])->name('rate.store');
 Route::get('/rating',[CommonController::class,'ratingIndex'])->name('rate.index');
+Route::put('/rating/edit/{id}',[CommonController::class,'updateRating']);
+Route::get('/rating/view/{id}',[CommonController::class,'showRating']);
 
 Route::post('/career',[CareerController::class,'careerStore'])->name('career.store');
 Route::get('/career',[CareerController::class,'careerIndex'])->name('career.index');

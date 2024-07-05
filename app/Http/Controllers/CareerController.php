@@ -104,7 +104,8 @@ class CareerController extends Controller
 
     public function jobAppliedIndex()
     {
-        $data = JobForm::orderBy('created_at', 'desc')->get();
+        $data = JobForm::with("career")->orderBy('created_at', 'desc')->get();
+        dd($data);
         if ($data->count() > 0) {
             return response()->json([
                 'status' => 200,
@@ -135,8 +136,8 @@ class CareerController extends Controller
             'state' => 'required|string',
             'gender' => 'required|string',
             'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',
-            'photo' => 'required|image|max:10240',
-            'document' => 'required|image|max:10240',
+            'photo' => 'required|max:10240',
+            'document' => 'required|max:10240',
         ]);
 
         if ($validator->fails()) {

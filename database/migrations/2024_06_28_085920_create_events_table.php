@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('event_type');
             $table->string('address');
             $table->integer('quantity');
+            $table->string('booking_date');
             $table->timestamps();
         });
     }

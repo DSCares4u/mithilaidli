@@ -1,7 +1,7 @@
 @extends('home.homeBase')
 @section('content')
     <div class="bg-[#6ab04c] h-full">
-        <div class="main flex w-full py-20 h-screen ">
+        <div class="main flex w-full pt-20 h-[100%] mb-20">
             <div class="w-1/2 px-6">
                 <div id="default-carousel" class="relative w-full z-10" data-carousel="slide">
                     <!-- Carousel wrapper -->
@@ -85,12 +85,12 @@
                 </h3>
                 <p class="text-white font-medium  border-t-2 border-yellow-600  pt-2">To create new entrepreneurs by opening
                     branches at different places and through it to provide employment to numerous youths.</p>
-                    <a href="/order-now">
-                        <button
-                            class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-lg "><i
+                <a href="/order-now">
+                    <button
+                        class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-lg "><i
                             class="fa-solid fa-circle-arrow-right"></i> Enjoy Our Special Idlis
-                        </button>
-                    </a>
+                    </button>
+                </a>
             </div>
         </div>
         <div class="card flex gap-10 px-8">
@@ -113,32 +113,86 @@
                 </div>
             </div>
         </div>
-        <div class="main flex w-full py-20 h-screen px-20">
+        <div class="main flex w-full py-20 h-[100%] px-20">
             <div class="w-1/2 px-6 rounded-xl"><img src="/logo/idli4.jpg" class="h-80 rounded-xl" alt="">
             </div>
-            <div class="w-1/2 px-6 ">
+            <div class="w-1/2 px-6 mt-8">
                 <h3 class="text-4xl text-white font-bold leading-snug mb-3">
                     FIND YOUR BEST TASTED FOOD & DRINK JUST IN ONE PLACE </h3>
                 <p class="text-white font-medium  border-t-2 border-yellow-600  pt-2">The taste of southexidli idli is
                     because of these things that creep on everyone’s tongue and remind them constantly. There will be no
                     oily feeling while tasting the Sambar and Chutney made from wet coconut, which gives a sweet taste to
                     the tongue. People are fans of it.</p>
-                <button
-                    class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-md "><i
-                        class="fa-solid fa-circle-arrow-right"></i> About Us</button>
+                <a href="/blog-page">
+                    <button
+                        class="px-3 py-2 font-medium text-[#6ab04c] bg-white  hover:bg-[] hover:text-black mt-2 rounded-md "><i
+                            class="fa-solid fa-circle-arrow-right"></i> About Us</button>
+                </a>
             </div>
         </div>
     </div>
-    <div class="w-full flex h-80 bg-gradient-to-br from-yellow-400 via-green-300 to-yellow-500">
-        <div class="w-3/12">
-            <img src="" alt="">
+    <div class="w-full flex gap-5 mt-5 mb-3 px-5">
+        <div class="w-1/2 flex justify-center h-[400px] ">
+            <div class="bg-white p-5 rounded-lg w-full shadow-lg">
+                <h2 class="text-xl font-semibold mb-2">Ratings & Reviews</h2>
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl font-bold">4.4</span>
+                    <span class="text-yellow-500 ml-2">★</span>
+                    <span class="ml-2 text-gray-500">(<span id="counting"></span> Ratings & <span
+                            id="countingReview"></span> Reviews)</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-center">
+                        <span class="w-8 text-right">5 ★</span>
+                        <div class="w-full bg-gray-200 rounded-lg mx-2">
+                            <div class="bg-green-500 h-2 rounded-lg" style="width: 0%" id="progressBar5"></div>
+                        </div>
+                        <span class="w-12 text-right" id="star5Count">4,754</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-8 text-right">4 ★</span>
+                        <div class="w-full bg-gray-200 rounded-lg mx-2">
+                            <div class="bg-green-400 h-2 rounded-lg" style="width: 0%" id="progressBar4"></div>
+                        </div>
+                        <span class="w-12 text-right" id="star4Count">1,708</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-8 text-right">3 ★</span>
+                        <div class="w-full bg-gray-200 rounded-lg mx-2">
+                            <div class="bg-yellow-400 h-2 rounded-lg" style="width: 0%" id="progressBar3"></div>
+                        </div>
+                        <span class="w-12 text-right" id="star3Count">439</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-8 text-right">2 ★</span>
+                        <div class="w-full bg-gray-200 rounded-lg mx-2">
+                            <div class="bg-yellow-400 h-2 rounded-lg" style="width: 0%" id="progressBar2"></div>
+                        </div>
+                        <span class="w-12 text-right" id="star2Count">166</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-8 text-right">1 ★</span>
+                        <div class="w-full bg-gray-200 rounded-lg mx-2">
+                            <div class="bg-red-500 h-2 rounded-lg" style="width: 0%" id="progressBar1"></div>
+                        </div>
+                        <span class="w-12 text-right"id="star1Count">448</span>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button id="rateBtn"
+                        class="bg-yellow-300 mt-5 hover:bg-yellow-500 text-white px-2 py-2 rounded-lg shadow">
+                        Rate Now
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="w-6/12"><h3 class="font-bold text-5xl mx-12 my-10 text-white">Are you ready to order
-            with the best deals?</h3></div>
-        <div class="w-3/12">
-            <img src="" alt="">
+        <div class="w-1/2 mx-auto bg-white p-6 rounded-lg shadow-lg" id="callingReview">
+            <div class="text-center mt-4">
+                <a href="#" class="text-blue-600 hover:underline">All reviews</a>
+            </div>
         </div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('[data-carousel-item]');
@@ -169,4 +223,147 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            // Function to fetch and display comments
+            let callingData = (showAll = false) => {
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('rate.index') }}",
+                    success: function(response) {
+                        let table = $("#callingReview");
+                        table.empty();
+                        let data = response.data;
+
+                        // Filter comments based on status and non-null comments
+                        let filteredData = data.filter(item => item.status === 1 && item.comment);
+
+                        // Update appointment count
+                        let total = data.length;
+                        $("#counting").html(total);
+
+                        let totalRev = filteredData.length;
+                        $("#countingReview").html(totalRev);
+
+                        let totalRate = filteredData.reduce((acc, item) => acc + item.rate, 0);
+                        let avg = totalRate / total;
+                        $("#average").html(avg.toFixed(2));
+
+                        // Count star ratings
+                        let starCounts = countStarRatings(data);
+                        displayStarCounts(starCounts);
+
+                        // progressbar
+                        updateProgressBars(starCounts);
+
+                        // Determine comments to display
+                        let commentsToDisplay = showAll ? filteredData : filteredData.slice(-4);
+
+                        commentsToDisplay.forEach((data) => {
+                            let formattedDate = new Date(data.created_at)
+                                .toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                });
+
+                            table.append(`
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <div class="flex items-center mb-2">
+                                    <div class="flex items-center bg-green-600 text-white rounded-md px-2">
+                                        <span class="text-base font-semibold">${data.rate} ★</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold ml-2 truncate">${data.comment}</h3>
+                                </div>
+                                <div class="text-sm text-gray-500 flex flex-col items-start mt-2">
+                                    <span class="ml-2 font-semibold">${data.name}, Our Valuable Customer</span>
+                                    <span class="ml-2">Commented on : ${formattedDate}</span>
+                                </div>
+                            </div>   
+                        `);
+                        });
+
+                        // Append "View All" button if not showing all comments
+                        if (!showAll && filteredData.length > 4) {
+                            table.append(`
+                            <div class="text-center mt-4">
+                                <button id="viewAllBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md">View All</button>
+                            </div>
+                        `);
+
+                            $("#viewAllBtn").on("click", function() {
+                                callingData(true);
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+            // Function to count star ratings
+            let countStarRatings = (data) => {
+                let starCounts = {
+                    1: 0,
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 0
+                };
+
+                data.forEach(item => {
+                    if (item.rate >= 1 && item.rate <= 5) {
+                        starCounts[item.rate]++;
+                    }
+                });
+
+                return starCounts;
+            }
+
+            // Function to display star counts
+            let displayStarCounts = (starCounts) => {
+                for (let star in starCounts) {
+                    $(`#star${star}Count`).html(starCounts[star]);
+                }
+            }
+
+            // Function to update progress bars
+            let updateProgressBars = (starCounts) => {
+                let totalStars = Object.values(starCounts).reduce((acc, count) => acc + count, 0);
+                for (let star in starCounts) {
+                    str = Number(starCounts[star]);
+                    let percentage = (str / totalStars * 100);
+                    $(`#progressBar${star}`).css("width", `${percentage}%`);
+                }
+            }
+
+            // Initial call to fetch and display comments
+            callingData();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const button1 = document.getElementById('rateBtn');
+        const button2 = document.getElementById('rateUsButton');
+
+        button1.addEventListener('click', () => {
+            button2.click();  // Trigger click event on button2 when button1 is clicked
+        });
+
+        button2.addEventListener('click', () => {
+            console.log('Rate Us button  clicked!');
+            // Add any other logic for button2 click event here
+        });
+    });
+    </script>
+
+    <style>
+        .truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 @endsection

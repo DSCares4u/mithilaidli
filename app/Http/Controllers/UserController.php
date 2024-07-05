@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookedMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
@@ -48,9 +50,12 @@ class UserController extends Controller
             ]);
     
             if ($user) {
+
+                Mail::to('ronitsaha836@gmail.com')->send(new BookedMail($user));
+
                 return response()->json([
                     'user_id' => $user->id,
-                    'message' => 'Successfull'
+                    'message' => 'Order Booked Successfully'
                 ]);
             } else {
                 return response()->json([
@@ -60,46 +65,6 @@ class UserController extends Controller
             }
         }
     }
-
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-
-    //     if (Auth::attempt($credentials)) {
-    //         // Authentication passed...
-    //         return redirect()->intended('/dashboard');
-    //     }
-
-    //     return redirect()->back()->withInput($request->only('email'))->withErrors([
-    //         'email' => 'These credentials do not match our records.',
-    //     ]);
-    // }
-
-    // public function login(Request $request){
-
-    //     $validator = Validator::make($request->all(), [
-    //         'mobile' => 'required|unique:users',                   
-    //     ]);
-    
-    //     if ($validator->fails()) {
-    //         return response()->json([
-    //             'status' => 422,
-    //             'error' => $validator->messages()
-    //         ], 422);
-    //     }
-    // }
-
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
-
-    //     $request->session()->invalidate();
-
-    //     $request->session()->regenerateToken();
-
-    //     return redirect('/');
-    // }
-    
 
     public function show($id)
     {

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EventMail;
+use App\Mail\FranchiseMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Franchise;
 use App\Models\Blog;
@@ -53,6 +56,9 @@ class CommonController extends Controller
             ]);
     
             if ($data) {
+
+                Mail::to('ronitsaha836@gmail.com')->send(new FranchiseMail($data));
+
                 return response()->json([
                     'status' => 200,
                     'message' => 'We Will Connect You Soon'
@@ -151,6 +157,7 @@ class CommonController extends Controller
             'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
             'address' => 'required|string',                   
             'event_type' => 'required|string',                   
+            'booking_date' => 'required',                   
             'quantity' => 'required|integer|min:10',
         ]);
 
@@ -167,9 +174,12 @@ class CommonController extends Controller
                 'address'=>$request->address,                                       
                 'quantity'=>$request->quantity,                                   
                 'event_type'=>$request->event_type,                                      
+                'booking_date'=>$request->booking_date,                                      
             ]);
     
             if ($event) {
+                Mail::to('ronitsaha836@gmail.com')->send(new EventMail($event));
+
                 return response()->json([
                     'status' => 200,
                     'message' => 'We Will Connect You Soon'
@@ -198,8 +208,7 @@ class CommonController extends Controller
         }
     }
 
-    public function ratingStore(Request $request)
-    {
+    public function ratingStore(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',                   
             'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
@@ -233,4 +242,92 @@ class CommonController extends Controller
             }
         }
     }
+
+    public function updateRating(Request $request, int $id){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',                   
+            'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages()
+            ], 422);
+        }
+        else {
+            $rating = Rating::find($id);
+            if($rating){
+                $rating->update([
+                    'name' => $request->name,                                       
+                    'mobile' => $request->mobile,
+                    'comment' => $request->comment,   
+                    'status' => $request->status  
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'message' => "Rating Updated Successfully"
+                ], 200);
+            }
+            else {
+                return response()->json([
+                    'status' => 500,
+                    'message' => "No Data Found"
+                ], 500);
+            }
+        }
+    }
+
+    public function showRating($id)
+    {
+        $data = Rating::find($id);
+        if($data){
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ], 200);
+        }
+        else{
+            return response()->json([
+                'status' => 404,
+                'message' => "No Data Found"
+            ], 404);
+        }
+    }
+
+    // public function update(Request $request, int $id)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required|string',
+    //         'features' => 'required|string|min:3',
+    //         'price' => 'required|string',   
+            
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'status' => 422,
+    //             'error' => $validator->messages()
+    //         ], 422);
+    //     } else {
+    //         $hirePlan = HirePlan::find($id);
+    //         if ($hirePlan) {
+    //             $hirePlan->update([
+    //                 'name' => $request->name,
+    //                 'features' => $request->features,
+    //                 'price' => $request->price,                      
+    //             ]);
+
+    //             return response()->json([
+    //                 'status' => 200,
+    //                 'message' => "Hiring Plan Updated Successfully"
+    //             ], 200);
+    //         } else {
+    //             return response()->json([
+    //                 'status' => 500,
+    //                 'message' => "No Plan Found"
+    //             ], 500);
+    //         }
+    //     }
+    // }
+
 }

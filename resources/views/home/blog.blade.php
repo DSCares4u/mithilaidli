@@ -9,12 +9,51 @@
             </section>
 
             <section class="mt-12 ">
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="callingData"></div>
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"  id="callingData"></div>
             </section>
         </main>
     </div>
 
+
     <script>
+        $(document).ready(function() {
+            // Function to fetch and display blog data
+            let fetchBlogData = () => {
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('blog.index') }}",
+                    success: function(response) {
+                        let card = $("#callingData");
+                        card.empty();
+                        let data = response.data;
+                        data.forEach((data) => {
+                            card.append(`
+                                <div class="bg-white p-4 rounded-lg shadow-lg">
+                                    <div class='text-center'>
+                                        <iframe width="100%" height="315" src="${data.link}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <h3 class="mt-4 text-xl font-semibold text-gray-900">${data.title}</h3>
+                                    <p class="mt-2 text-gray-600">${data.description}</p>
+                                    <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
+                                </div>
+                            `);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            };
+    
+            // Initial call to fetch blog data
+            fetchBlogData();
+        });
+    </script>
+    
+
+    {{-- below code is working properly  --}}
+
+    {{-- <script>
         $(document).ready(function() {
             // Function to fetch and display appointment
             let callingData = () => {
@@ -33,7 +72,7 @@
                                     </div>
                                     <h3 class="mt-4 text-xl font-semibold text-gray-900">${data.title}</h3>
                                     <p class="mt-2 text-gray-600">${data.description}</p>
-                                    <a href="${data.link}" class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
+                                    <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-indigo-600 hover:underline">Read More</a>
                                 </div>
                             `);
                         });
@@ -45,5 +84,5 @@
             }
             callingData();
         });
-    </script>
+    </script> --}}
 @endsection
