@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <nav class="bg-[#f39c12] shadow-lg">
+    {{-- <nav class="bg-[#f39c12] shadow-lg">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
                 <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
@@ -81,10 +81,83 @@
                 </div>
             </div>
         </div>
+    </nav> --}}
+    <nav class="bg-[#f39c12] shadow-lg">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4 items-center">
+                            <a href="/" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                            <a href="/whyus" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
+                            <a href="/brand-story" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
+                            <a href="/career-page" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
+                            <a href="/franchise-query" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
+                            <a href="/cart-locator" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
+                            <a href="/blog-page" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex md:gap-5 gap-2 ">
+                    <a href="/book-event">
+                        <button class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
+                            <i class="fa-solid fa-gift mr-2"></i>Book An Event
+                        </button>
+                    </a>
+                    <a href="/order-now">
+                        <button class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
+                            <i class="fas fa-cart-plus mr-2"></i>Order Now
+                        </button>
+                    </a>
+                </div>
+                <div class=" inset-y-0 right-0 flex items-center sm:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="/whyus" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
+                <a href="/brand-story" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
+                <a href="/career-page" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
+                <a href="/franchise-query" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
+                <a href="/cart-locator" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
+                <a href="/blog-page" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
+            </div>
+        </div>
     </nav>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+    
+            menuButton.addEventListener('click', function () {
+                const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                menuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    
 
-    {{-- Rating Work  --}}
-    <!-- Rate Us Button -->
     <div class="fixed top-1/2 right-0 transform -translate-y-1/2 z-20">
         <button id="rateUsButton" class="bg-yellow-300 hover:bg-yellow-500 text-white px-2 py-6 rounded-l-lg shadow vertical-text">
             Rate Us
@@ -92,13 +165,12 @@
     </div>
 
     <div id="rateUsModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 z-30 flex items-center justify-center modal">
-        <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full p-6">
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full p-6 ">
             <div class="text-right">
                 <button id="closeModal" class="text-gray-500 text-4xl">&times;</button>
             </div>
             <h2 class="text-2xl mb-4">Rate Us</h2>
             <form id="rateUsForm" class="space-y-4">
-                <!-- Rating Stars -->
                 <div>
                     <label class="block mb-2">Rating:</label>
                     <div class="flex space-x-1">
@@ -110,25 +182,21 @@
                     </div>
                     <p id="error-rate" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
-                <!-- Name -->
                 <div>
                     <label for="name" class="block mb-2">Name:</label>
                     <input type="text" id="name" name="name" class="w-full border rounded p-2">
                     <p id="error-name" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
-                <!-- Mobile -->
                 <div>
                     <label for="mobile" class="block mb-2">Mobile:</label>
                     <input type="tel" id="mobile" name="mobile" class="w-full border rounded p-2">
                     <p id="error-mobile" class="text-red-500 text-xs font-semibold error-message"></p>
                 </div>
-                <!-- Comment -->
                 <div>
                     <label for="comment" class="block mb-2">Comment (Optional) :</label>
                     <textarea id="comment" name="comment" rows="3" class="w-full border rounded p-2"></textarea>
                 </div>
     
-                <!-- Submit Button -->
                 <div class="text-right">
                     <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow">Submit</button>
                 </div>
@@ -207,17 +275,15 @@
     @section('content')
     @show
 
-    <footer class="bg-gray-900 text-gray-400 py-12">
+    {{-- <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-4 md:px-5">
             <div class="flex justify-between">
-                <!-- About Us Section -->
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">About Us</h4>
                     <p class="text-gray-400">Welcome to our Mithila Idli ! We offer the finest cuisine with fresh
                         ingredients and a welcoming atmosphere.</p>
                 </div>
 
-                <!-- Quick Links Section -->
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">Quick Links</h4>
                     <ul class="list-none">
@@ -228,7 +294,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact Us Section -->
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">Contact Us</h4>
                     <p><i class="fas fa-map-marker-alt mr-2"></i>Panchwati Chowk, Purnea, Bihar</p>
@@ -236,7 +301,6 @@
                     <p><i class="fas fa-envelope mr-2"></i>info@mithilaidli.com</p>
                 </div>
 
-                <!-- Social Media Section -->
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">Follow Us</h4>
                     <div class="flex space-x-4">
@@ -253,7 +317,51 @@
                 <p>&copy; 2024 Mithila Idli. All rights reserved.</p>
             </div>
         </div>
+    </footer> --}}
+
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4 md:px-5">
+            <div class="flex flex-col md:flex-row justify-between md:gap-10">
+                <div class="w-full md:w-1/4 mb-6">
+                    <h4 class="text-white text-lg mb-4">About Us</h4>
+                    <p class="text-gray-400">Welcome to our Mithila Idli ! We offer the finest cuisine with fresh
+                        ingredients and a welcoming atmosphere.</p>
+                </div>
+    
+                <div class="w-full md:w-1/4 mb-6">
+                    <h4 class="text-white text-lg mb-4">Quick Links</h4>
+                    <ul class="list-none">
+                        <li><a href="#" class="hover:text-white">Home</a></li>
+                        <li><a href="#" class="hover:text-white">Menu</a></li>
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <div class="w-full md:w-1/4 mb-6">
+                    <h4 class="text-white text-lg mb-4">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>Panchwati Chowk, Purnea, Bihar</p>
+                    <p><i class="fas fa-phone mr-2"></i>(123) 456-7890</p>
+                    <p><i class="fas fa-envelope mr-2"></i>info@mithilaidli.com</p>
+                </div>
+    
+                <div class="w-full md:w-1/4 mb-6">
+                    <h4 class="text-white text-lg mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center">
+                <p>&copy; 2024 Mithila Idli. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+    
 </body>
 
 </html>
