@@ -32,7 +32,8 @@ class UserController extends Controller
             'name' => 'required|string',                   
             'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
             'address' => 'required|string',                   
-            'quantity' => 'required|integer|min:10',
+            'booking_date' => 'required|date|after:tomorrow',
+            'quantity' => 'required|integer|min:50',
         ]);
 
             if ($validator->fails()) {
@@ -45,6 +46,7 @@ class UserController extends Controller
             $user = User::create([
                 'name' => $request->name,                                       
                 'mobile' => $request->mobile,
+                'booking_date' => $request->booking_date,
                 'address'=>$request->address,                                       
                 'quantity'=>$request->quantity                                      
             ]);

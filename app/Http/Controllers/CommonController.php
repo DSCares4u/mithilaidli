@@ -36,7 +36,7 @@ class CommonController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',                   
             'mobile' => 'required|digits:10|regex:/^[0-9]{10}$/',                   
-            'email' => 'required|string',                   
+            'email' => 'required|email',                   
             'location' => 'required|string',                   
         ]);
 

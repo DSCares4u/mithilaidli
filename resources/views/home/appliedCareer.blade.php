@@ -1,4 +1,5 @@
 @extends('home.homeBase')
+@section('title', 'Career')
 @section('content')
 <div class="max-w-4xl mx-auto my-10 bg-gray-200 p-8 rounded-lg shadow-lg">
     <h1 class="text-2xl font-bold text-gray-700 mb-8 text-center">Job Application Form</h1>

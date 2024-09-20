@@ -1,4 +1,5 @@
 @extends('home.homebase')
+@section('title', 'Career')
 @section('content')
 {{-- <div class="bg-gray-100 text-gray-800">
     <main class="container mx-auto px-6 py-12">
@@ -16,7 +17,7 @@
 <div class="bg-gray-100 text-gray-800">
     <main class="container mx-auto px-6 py-12">
         <section class="text-center">
-            <h2 class="text-4xl font-semibold text-gray-900">Our Story</h2>
+            <h2 class="text-4xl font-semibold text-gray-900">Career with us</h2>
             <p class="mt-4 text-lg text-gray-600">Discover the journey behind Mithila Idli and our passion for authentic South Indian cuisine.</p>
         </section>
         <div class="flex flex-col md:flex-row mt-12">
@@ -45,7 +46,7 @@
                                     <div class="flex flex-col md:flex-row justify-between">
                                         <div class="flex flex-col md:flex-row gap-5">
                                             <div class="logo">
-                                                <img src="/career/image/${data.image}" class="rounded w-20 h-20" alt="">
+                                                <img src="{{asset('/career/image/${data.image}')}}" class="rounded w-20 h-20" alt="">
                                             </div>
                                             <div class="name flex flex-col">
                                                 <h5 class="font-semibold text-black">${data.title}</h5>
@@ -114,9 +115,9 @@
                                         <button class="toggleButton text-blue-500"><i class="fa-solid fa-angle-down"></i></button>
                                     </div>
                                     <div class="button flex flex-col md:flex-row gap-5 mt-5">
-                                        <a href="/career-applied/${data.id}" class="bg-green-600 rounded hover:bg-green-700 text-center text-white py-1 w-full md:w-1/2">Apply For Job</a>
+                                        <a href="{{url('/career-applied/${data.id}')}}" class="bg-green-600 rounded hover:bg-green-700 text-center text-white py-1 w-full md:w-1/2">Apply For Job</a>
                                         <button class="share-btn rounded text-green-700 border border-green-700 text-center px-auto flex justify-center py-1 w-full md:w-1/2" data-share-url="/career-applied/${data.id}">
-                                            <img src="/icons/share.png" class="h-6 mr-1" alt="">Share
+                                            <img src="{{asset('/icons/share.png')}}" class="h-6 mr-1" alt="">Share
                                         </button>
                                     </div>
                                 </div>

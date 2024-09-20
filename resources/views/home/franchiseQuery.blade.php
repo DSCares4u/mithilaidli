@@ -1,4 +1,5 @@
 @extends('home.homebase')
+@section('title', 'Franchise Inquiry')
 @section('content')
     <div class="bg-gray-100 text-gray-800">
         <main class="container mx-auto px-6 py-12">

@@ -1,4 +1,5 @@
 @extends('home.homeBase')
+@section('title', 'Homepage')
 @section('content')
     {{-- <div class="bg-[#6ab04c] h-full">
         <div class="main flex w-full pt-20 h-[100%] mb-20">
@@ -277,31 +278,31 @@
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                         <!-- Item 1 -->
                         <div class="carousel-item active duration-700 ease-in-out" data-carousel-item>
-                            <img src="/logo/idli3.JPG"
+                            <img src="{{asset('/logo/idli3.jpg')}}"
                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
                         <!-- Item 2 -->
                         <div class="carousel-item duration-700 ease-in-out" data-carousel-item>
-                            <img src="/logo/idli2.JPG"
+                            <img src="{{asset('/logo/idli2.jpg')}}"
                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
                         <!-- Item 3 -->
                         <div class="carousel-item duration-700 ease-in-out" data-carousel-item>
-                            <img src="/logo/idli5.jpg"
+                            <img src="{{asset('/logo/idli5.jpg')}}"
                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
                         <!-- Item 4 -->
                         <div class="carousel-item duration-700 ease-in-out" data-carousel-item>
-                            <img src="/logo/idli3.jpg"
+                            <img src="{{asset('/logo/idli3.jpg')}}"
                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
                         <!-- Item 5 -->
                         <div class="carousel-item duration-700 ease-in-out" data-carousel-item>
-                            <img src="/logo/idli2.JPG"
+                            <img src="{{asset('/logo/idli2.jpg')}}"
                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
@@ -355,7 +356,7 @@
                 </h3>
                 <p class="text-white font-medium border-t-2 border-yellow-600 pt-2">To create new entrepreneurs by opening
                     branches at different places and through it to provide employment to numerous youths.</p>
-                <a href="/order-now">
+                <a href="{{asset('/order-now')}}">
                     <button
                         class="px-3 py-2 font-medium text-[#6ab04c] bg-white hover:bg-[] hover:text-black mt-2 rounded-lg"><i
                             class="fa-solid fa-circle-arrow-right"></i> Enjoy Our Special Idlis
@@ -370,7 +371,7 @@
                     <p class="text-base">Best breakfast in the town</p>
                 </div>
                 <div class="w-1/4">
-                    <img src="/logo/idli5.png" alt="" class="h-40">
+                    <img src="{{asset('/logo/idli5.png')}}" alt="" class="h-40">
                 </div>
             </div>
             <div class="w-full lg:w-1/2 flex bg-black px-4 py-12 rounded-xl">
@@ -379,12 +380,12 @@
                     <p class="text-base">perfect mode for the day</p>
                 </div>
                 <div class="w-1/4">
-                    <img src="/logo/cofee.png" alt="" class="h-40">
+                    <img src="{{asset('/logo/cofee.png')}}" alt="" class="h-40">
                 </div>
             </div>
         </div>
         <div class="main flex flex-col lg:flex-row w-full py-20 h-auto px-6 lg:px-20">
-            <div class="w-full lg:w-1/2 px-6 rounded-xl mb-6 lg:mb-0"><img src="/logo/idli4.jpg" class="h-80 rounded-xl" alt="">
+            <div class="w-full lg:w-1/2 px-6 rounded-xl mb-6 lg:mb-0"><img src="{{asset('/logo/idli4.jpg')}}" class="h-80 rounded-xl" alt="">
             </div>
             <div class="w-full lg:w-1/2 px-6 mt-8 lg:mt-0">
                 <h3 class="text-3xl md:text-4xl text-white font-bold leading-snug mb-3">
@@ -393,7 +394,7 @@
                     because of these things that creep on everyone’s tongue and remind them constantly. There will be no
                     oily feeling while tasting the Sambar and Chutney made from wet coconut, which gives a sweet taste to
                     the tongue. People are fans of it.</p>
-                <a href="/blog-page">
+                <a href="{{url('/blog-page')}}">
                     <button
                         class="px-3 py-2 font-medium text-[#6ab04c] bg-white hover:bg-[] hover:text-black mt-2 rounded-md"><i
                             class="fa-solid fa-circle-arrow-right"></i> About Us</button>

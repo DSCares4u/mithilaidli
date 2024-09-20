@@ -1,4 +1,5 @@
 @extends('home.homeBase')
+@section('title', 'Event booking')
 @section('content')
     <div class="bg-gray-200 flex justify-center items-center px-10 h-screen">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">

@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- @vite('resources/css/app.css') --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Mithila idli</title>
-
+    <title>@yield('title') - Mithila idli</title>
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
         .carousel-item {
             display: none;
         }
@@ -38,78 +40,42 @@
 </head>
 
 <body>
-    {{-- <nav class="bg-[#f39c12] shadow-lg">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="relative flex items-center justify-between h-16">
-                <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="hidden sm:block sm:ml-6">
-                        <div class="flex space-x-4 items-center">
-                            <a href="/"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
-                            <a href="/whyus"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Why
-                                Us</a>
-                            <a href="/brand-story"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand
-                                Story</a>
-                            <a href="/career-page"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
-                            <a href="/franchise-query"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise
-                                Query</a>
-                            <a href="/cart-locator"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart
-                                Locator</a>
-                            <a href="/blog-page"
-                                class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-5">
-                    <a href="/book-event">
-                        <button
-                            class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
-                            <i class="fa-solid fa-gift mr-2"></i>Book An Event
-                        </button>
-                    </a>
-                    <a href="/order-now">
-                        <button
-                            class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
-                            <i class="fas fa-cart-plus mr-2"></i>Order Now
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav> --}}
     <nav class="bg-[#f39c12] shadow-lg">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
+                <!-- Logo Section -->
+                <div class="flex items-center">
+                    <a href="{{url('/')}}">
+                        <img src="{{asset('/logo/header-logo.png')}}" alt="Logo" class="h-12 w-auto sm:h-14">
+                    </a>
+                </div>
+                
+                <!-- Menu for Desktop -->
                 <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4 items-center">
-                            <a href="/" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
-                            <a href="/whyus" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
-                            <a href="/brand-story" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
-                            <a href="/career-page" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
-                            <a href="/franchise-query" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
-                            <a href="/cart-locator" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
-                            <a href="/blog-page" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
+                            <a href="{{url('/')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                            <a href="{{url('/whyus')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
+                            <a href="{{url('/brand-story')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
+                            <a href="{{url('/career-page')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
+                            <a href="{{url('/franchise-query')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
+                            <a href="{{url('/cart-locator')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
+                            <a href="{{url('/blog-page')}}" class="text-white hover:text-black px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
                         </div>
                     </div>
                 </div>
-                <div class="flex md:gap-5 gap-2 ">
-                    <a href="/book-event">
-                        <button class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
-                            <i class="fa-solid fa-gift mr-2"></i>Book An Event
-                        </button>
+                
+                <!-- Buttons for Desktop -->
+                <div class="flex flex-col md:flex-row md:gap-5 gap-1">
+                    <a href="{{url('/book-event')}}" class="w-full md:w-auto px-4 text-sm md:text-normal md:py-2 py-1 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
+                        <i class="fa-solid fa-gift mr-2"></i>Book An Event
                     </a>
-                    <a href="/order-now">
-                        <button class="px-4 py-2 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
-                            <i class="fas fa-cart-plus mr-2"></i>Order Now
-                        </button>
+                    <a href="{{url('/order-now')}}" class="w-full md:w-auto px-4 text-sm md:text-normal md:py-2 py-1 font-medium text-[#6ab04c] bg-white hover:text-black rounded-lg transition duration-300">
+                        <i class="fas fa-cart-plus mr-2"></i>Bulk Order
                     </a>
                 </div>
+                
+                <!-- Hamburger menu for Mobile -->
                 <div class=" inset-y-0 right-0 flex items-center sm:hidden">
                     <button type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -130,19 +96,20 @@
             </div>
         </div>
         
-        <!-- Mobile menu, show/hide based on menu state. -->
+        <!-- Mobile menu -->
         <div class="hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
-                <a href="/whyus" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
-                <a href="/brand-story" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
-                <a href="/career-page" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
-                <a href="/franchise-query" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
-                <a href="/cart-locator" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
-                <a href="/blog-page" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
+                <a href="{{url('/')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="{{url('/whyus')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Why Us</a>
+                <a href="{{url('/brand-story')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Brand Story</a>
+                <a href="{{url('/career-page')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Careers</a>
+                <a href="{{url('/franchise-query')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Franchise Query</a>
+                <a href="{{url('/cart-locator')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Cart Locator</a>
+                <a href="{{url('/blog-page')}}" class="text-white hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Blogs</a>
             </div>
         </div>
     </nav>
+    
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -272,8 +239,9 @@
     </script>
     
 
-    @section('content')
+    @yield('content')
     @show
+
 
     {{-- <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-4 md:px-5">
@@ -331,18 +299,18 @@
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">Quick Links</h4>
                     <ul class="list-none">
-                        <li><a href="#" class="hover:text-white">Home</a></li>
-                        <li><a href="#" class="hover:text-white">Menu</a></li>
-                        <li><a href="#" class="hover:text-white">About</a></li>
-                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="{{url('/')}}" class="hover:text-white">Home</a></li>
+                        {{-- <li><a href="#" class="hover:text-white"></a></li> --}}
+                        <li><a href="{{url('brand-story')}}" class="hover:text-white">About</a></li>
+                        <li><a href="{{url('order-now')}}" class="hover:text-white">Contact</a></li>
                     </ul>
                 </div>
     
                 <div class="w-full md:w-1/4 mb-6">
                     <h4 class="text-white text-lg mb-4">Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i>Panchwati Chowk, Purnea, Bihar</p>
-                    <p><i class="fas fa-phone mr-2"></i>(123) 456-7890</p>
-                    <p><i class="fas fa-envelope mr-2"></i>info@mithilaidli.com</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>Rambagh, Purnea, Bihar</p>
+                    <p><i class="fas fa-phone mr-2"></i>(+91) {{env('PHONE_NO')}}</p>
+                    <p><i class="fas fa-envelope mr-2"></i>mithilaidli@gmail.com</p>
                 </div>
     
                 <div class="w-full md:w-1/4 mb-6">
